@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilli Earning</title>
+    <style>
+        body { background: #0f172a; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; }
+        .card { background: #1e293b; border-radius: 20px; padding: 25px; margin: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .balance { font-size: 2.5em; font-weight: bold; color: #fbbf24; }
+        .btn { background: #ef4444; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2em; width: 80%; margin: 10px 0; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #dc2626; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p>ব্যালেন্স (টাকা)</p>
+        <div class="balance" id="balance">৳ ০.০০</div>
+    </div>
+    
+    <button class="btn" onclick="showAd()">Watch Ad (৳ ৫)</button>
+    <button class="btn" style="background:#3b82f6;" onclick="withdraw()">Withdraw</button>
+
+    <script>
+        function showAd() {
+            // আপনার Monetag Direct Link এখানে বসবে
+            window.open("https://otieu.com/4/10557505", "_blank");
+            setTimeout(() => {
+                alert("অ্যাড দেখা সফল! ৫ টাকা যোগ হয়েছে।");
+                document.getElementById('balance').innerText = "৳ ৫.০০";
+            }, 5000); // ৫ সেকেন্ড পর ব্যালেন্স দেখাবে
+        }
+        
+        function withdraw() {
+            alert("উইথড্র করার জন্য নূন্যতম ১০০০ টাকা লাগবে!");
+        }
+    </script>
+</body>
+</html>
