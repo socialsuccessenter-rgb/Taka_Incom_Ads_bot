@@ -39,44 +39,44 @@
 
     <div id="ad-overlay">
         <div class="timer-circle" id="timer-display">15</div>
-        <p> ...   !</p>
-        <p style="font-size: 12px; color: #8e99a2; margin-top: 10px;">      </p>
+        <p>বিজ্ঞাপনটি দেখছেন... ভিডিও কাটবেন না!</p>
+        <p style="font-size: 12px; color: #8e99a2; margin-top: 10px;">১৫ সেকেন্ড পর অটোমেটিক টাকা যোগ হবে</p>
     </div>
 
     <div class="profile-header">
-        <div class="avatar"></div>
+        <div class="avatar">👤</div>
         <h3 id="user-name">User</h3>
         <div class="balance-card">
-            <p style="font-size: 13px; color: #8e99a2;"> </p>
-            <div class="balance-amount" id="balance"> 0.00</div>
-            <p id="ad-limit" style="font-size: 11px; margin-top: 5px;"> : 0 / 10</p>
+            <p style="font-size: 13px; color: #8e99a2;">আপনার ব্যালেন্স</p>
+            <div class="balance-amount" id="balance">৳ 0.00</div>
+            <p id="ad-limit" style="font-size: 11px; margin-top: 5px;">আজকের অ্যাড: 0 / 10</p>
         </div>
     </div>
 
     <div class="content">
         <div id="home" class="page active">
             <div class="task-card" style="display: block; text-align: center;">
-                <h4> </h4>
-                <p style="font-size: 13px; margin: 10px 0;">    !</p>
-                <button class="btn" onclick="copyRef()">   </button>
+                <h4>রেফারেল বোনাস</h4>
+                <p style="font-size: 13px; margin: 10px 0;">বন্ধুদের ইনভাইট করে আয় করুন!</p>
+                <button class="btn" onclick="copyRef()">রেফার লিঙ্ক কপি করুন</button>
             </div>
         </div>
 
         <div id="task" class="page">
             <div class="task-card">
-                <div><h4> </h4><p>  ()</p></div>
-                <button id="ad-btn" class="btn" onclick="startAd()"></button>
+                <div><h4>ভিডিও অ্যাড</h4><p>১৫ সেকেন্ড (৳৫)</p></div>
+                <button id="ad-btn" class="btn" onclick="startAd()">দেখুন</button>
             </div>
             <div class="task-card">
-                <div><h4>Facebook Follow</h4><p> </p></div>
+                <div><h4>Facebook Follow</h4><p>বিনিময়ে ৳৩০</p></div>
                 <button id="fb-btn" class="btn" onclick="doTask('https://www.facebook.com/profile.php?id=61585605224547', 'fb')">Claim</button>
             </div>
         </div>
     </div>
 
     <nav class="nav-bar">
-        <div class="nav-item active" onclick="showPage('home', this)"><span>Home</span></div>
-        <div class="nav-item" onclick="showPage('task', this)"><span>Task</span></div>
+        <div class="nav-item active" onclick="showPage('home', this)">🏠<span>Home</span></div>
+        <div class="nav-item" onclick="showPage('task', this)">🎯<span>Task</span></div>
     </nav>
 
     <script>
@@ -92,8 +92,8 @@
         }
 
         function refresh() {
-            document.getElementById('balance').innerText = " " + data.balance.toFixed(2);
-            document.getElementById('ad-limit').innerText = " : " + data.adsCount + " / 10";
+            document.getElementById('balance').innerText = "৳ " + data.balance.toFixed(2);
+            document.getElementById('ad-limit').innerText = "আজকের অ্যাড: " + data.adsCount + " / 10";
             if(data.adsCount >= 10) document.getElementById('ad-btn').classList.add('btn-disabled');
             if(data.fbDone) document.getElementById('fb-btn').classList.add('btn-disabled');
             localStorage.setItem('ads_data', JSON.stringify(data));
@@ -107,12 +107,12 @@
         }
 
         function startAd() {
-            if(data.adsCount >= 10) return alert("  !");
+            if(data.adsCount >= 10) return alert("আজকের লিমিট শেষ!");
             
-            //      
+            // টেলিগ্রামের ভেতরে অ্যাড লিঙ্ক ওপেন করা
             tg.openLink("https://otieu.com/4/10557505");
             
-            //  
+            // টাইমার দেখানো
             let timeLeft = 15;
             document.getElementById('ad-overlay').style.display = 'flex';
             
@@ -126,7 +126,7 @@
                     data.balance += 5;
                     data.adsCount += 1;
                     refresh();
-                    alert("     !");
+                    alert("সাফল্যের সাথে ৫ টাকা যোগ হয়েছে!");
                 }
             }, 1000);
         }
@@ -136,16 +136,16 @@
             setTimeout(() => {
                 if(type === 'fb' && !data.fbDone) {
                     data.balance += 30; data.fbDone = true; refresh();
-                    alert("   !");
+                    alert("৩০ টাকা বোনাস পেয়েছেন!");
                 }
-            }, 15000); //    
+            }, 15000); // ১৫ সেকেন্ড ওয়েট করবে
         }
 
         function copyRef() {
             let botUser = "Red_Chilii_bot"; 
             let uid = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.id : "000";
             navigator.clipboard.writeText("https://t.me/" + botUser + "?start=" + uid);
-            alert("    !");
+            alert("আপনার রেফার লিঙ্ক কপি হয়েছে!");
         }
 
         if(tg.initDataUnsafe.user) document.getElementById('user-name').innerText = tg.initDataUnsafe.user.first_name;
@@ -153,3 +153,10 @@
     </script>
 </body>
 </html>
+
+        if(tg.initDataUnsafe.user) document.getElementById('user-name').innerText = tg.initDataUnsafe.user.first_name;
+        refresh();
+    </script>
+</body>
+</html>
+
